@@ -1,0 +1,19 @@
+
+  {% extends 'base.html' %}
+ 
+  {% block content %} 
+ 
+   
+    <h3>{{ note.title }}</h3>
+    <div style="width:80%;height:400px;overflow:scroll;margin: 0 auto;">{{ note.content }}</div>
+
+    <a href='/notelist/nico2ever/{{note.guid}}'><img src='/img/edit.png' width='280px' height='90px' /></a><br>
+    {% if fromnotebook %}
+      <a href='/notelist/notebynotebook/{{ fromnotebook }}'>戻る</a>
+    {% endif %}
+    {% if fromtag %}
+      <a href='/notelist/notebytag/{{ fromtag }}'>戻る</a>
+    {% endif %}
+
+     
+  {% endblock content %} 

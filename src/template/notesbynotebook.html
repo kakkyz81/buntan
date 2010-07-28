@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% block content %} 
+  <div style="text-align:left;padding-top:2%">
+    <form method="post" action="/notelist/postmultinoteeditbynotebook">
+    <div style="text-align:left;float:left;padding-right:2%">
+      <h4>
+        <a href="/notelist/index"> ノートブック </a>&nbsp;->&nbsp;{{ notebook.name }}
+      </h4>
+      <table><tr>
+            <td style="vertical-align:top;">
+              <input type="submit" value="一括編集" /></td> 
+            <td style="vertical-align:top;padding-left:1.2em;">←チェック付きのものを一括で編集します。個別編集は、個々のタイトルをクリックした画面から行ってください。
+            </td>
+      </tr></table>
+    </div>
+    <div style="text-align:left;float:left;">
+      <ul>
+      {% for note in notes %}
+      <li><input type="checkbox" name="editnote" value="{{note.guid}}" {{note.nico}}><a href='/notelist/notedetail/{{ note.guid }}'>{{ note.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+    </form>
+  </div>
+{% endblock content %} 

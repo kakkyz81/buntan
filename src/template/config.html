@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+{% block title %} 設定 {% endblock %}
+{% block content %} 
+
+<img src='/img/config.png' width='280px' height='90px' />
+<form method="post" action="/notelist/posteditconfig">
+  <div style="text-align:left;padding-top:2%">
+    <div style="text-align:left;float:left;width:100%">
+      <div style="height:1.8em;">
+        <label> <input type="checkbox" name="adddefaulttag" {% if account.adddefaulttag %} checked {% endif %}>編集後にタグ</label>
+        &nbsp; <input type="text" name="defaulttag" value="{{ account.defaulttag }}" size="12"  />
+        を追加する
+        <label>
+        </div>
+        <div style="height:1.2em;">
+          <input type="checkbox" name="replacenote" {% if account.replacenote %} checked {% endif %}>ノートの内容全体を強制的に置換する（チェックしない場合は、以前のノートは末尾に残る）<br />
+        </label>
+      </div>
+      <div style="margin:0px auto;width:200px;text-align:center;">
+        <br />
+        <input type="button" value="戻る" onclick="location = '/'"> <input type="submit" value="設定変更">
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock content %} 

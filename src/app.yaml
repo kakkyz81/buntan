@@ -1,0 +1,15 @@
+application: nico2ever
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /img
+  static_dir: template/img
+
+- url: /favicon.ico
+  static_files: template/img/favicon.ico
+  upload: template/img/favicon.ico
+
+- url: /.*
+  script: nicoever.py

@@ -1,0 +1,30 @@
+
+  {% extends 'base.html' %}
+  {% block content %} 
+    {# user.username #}
+    <div style="padding-top:2%;float:left;text-align:left;">
+      
+      <table>
+        <tr>
+          <td style="width:8.5em;vertical-align:top;">ノートブック一覧</td>
+          <td style="vertical-align:top;">
+            <nobr>
+              {% for notebook in notebooks %}
+              <b>
+                <a href='/notelist/notebynotebook/{{notebook.guid}}'>{{ notebook.name }}</a>
+              </b><br>
+              {% endfor %}
+            </nobr>
+          </td> 
+          <td style="width:4.3em;vertical-align:top;">タグ一覧</td>
+          <td style="vertical-align:top;">
+              {% for tag in tags %}
+              <b>
+                <a href='/notelist/notebytag/{{tag.guid}}'>{{ tag.name }}</a>&nbsp;
+              </b>
+              {% endfor %}
+          </td> 
+        </tr>
+      </table>
+    </div>
+  {% endblock content %} 

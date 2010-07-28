@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+{% block content %} 
+  <div style="text-align:left;padding-top:2%">
+    <form method="post" action="/notelist/postmultinoteeditbytag">
+    <div style="text-align:left;float:left;padding-right:2%">
+      <h4>
+        <a href="/notelist/index"> タグ </a>&nbsp;->&nbsp;{{ tag.name }}
+      </h4>
+      <input type="submit" value="一括編集" />
+    </div>
+    <div style="text-align:left;float:left;">
+      <ul>
+      {% for note in notes %}
+      <li><input type="checkbox" name="editnote" value="{{note.guid}}" {{note.nico}}><a href='/notelist/notedetail/{{ note.guid }}'>{{ note.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+    </form>
+  </div>
+{% endblock content %} 
